@@ -26,9 +26,9 @@
 
 #canvas{
     width: 485px;
-    height:483px;
+    height:485px;
     /*margin: 1px;*/
-    padding: 1px;
+    padding: 0px;
 }
 
 #ScoreCol{
