@@ -22,16 +22,41 @@ function setPosition(xPos,yPos)
 }
 
 
-function clear() {
+function setCanvas()
+{
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+}
+
+function setImageSource()
+{
+  img.src = "images/maze.gif";
+}
+
+
+function startGameLoop()
+{
+  return setInterval(gameLoop, 200);
+}
+
+
+function clearBlock() {
   ctx.clearRect(0, 0, maze.width, maze.height);
   ctx.drawImage(img, 0, 0);
 }
 
+
+function drawBlock(x,y,w,h) {
+  ctx.beginPath();
+  ctx.rect(x,y,w,h);
+  ctx.closePath();
+  ctx.fill();
+}
+
 function init() {
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
-  img.src = "images/maze.gif";
-  return setInterval(draw, 200);
+  setCanvas();
+  setImageSource();
+  startGameLoop();
 }
 
 function doMovement(command){
@@ -40,7 +65,7 @@ console.log('doMovement');
     case 'up':  /* Up */
       if (y - dy > 0){ 
         y -= dy;
-        clear();
+       // clear();
         checkcollision();
         if (collision == 1){
           y += dy;
@@ -52,7 +77,7 @@ console.log('doMovement');
     case 'down':  /* Down  */
       if (y + dy < maze.height ){ 
         y += dy;
-        clear();
+       // clear();
         checkcollision();
         if (collision == 1){
           y -= dy;
@@ -64,7 +89,7 @@ console.log('doMovement');
     case 'left':  /* Left  */
       if (x - dx > 0){ 
         x -= dx;
-        clear();
+       // clear();
         checkcollision();
         if (collision == 1){
           x += dx;
@@ -75,7 +100,7 @@ console.log('doMovement');
     case 'right':  /* Right  */
       if ((x + dx < maze.width)){ 
         x += dx;
-        clear();
+      //  clear();
         checkcollision();
         if (collision == 1){
           x -= dx;
@@ -96,23 +121,18 @@ function checkcollision() {
   }
 }
 
-function draw() {
-  clear();          
+function gameLoop() {
+  clearBlock();          
   ctx.fillStyle = "white";
 
   //every time we redraw we process the user command - up , down etc...
   doMovement(command);
 
-  rectangle(x, y, 15,15);
+  drawBlock(x, y, 15,15);
 
 }
 
-function rectangle(x,y,w,h) {
-  ctx.beginPath();
-  ctx.rect(x,y,w,h);
-  ctx.closePath();
-  ctx.fill();
-}
+
 
 init();
 //window.addEventListener('keydown',doKeyDown,true);
