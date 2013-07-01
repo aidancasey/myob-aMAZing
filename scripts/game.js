@@ -9,6 +9,10 @@ var HEIGHT = 482;
 var img = new Image();
 var collision = 0;
 
+var command = "";
+
+
+
 function clear() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
   ctx.drawImage(img, 0, 0);
@@ -18,12 +22,13 @@ function init() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   img.src = "images/maze.gif";
-  return setInterval(draw, 10);
+  return setInterval(draw, 150);
 }
 
-function doKeyDown(evt){
-  switch (evt.keyCode) {
-    case 87:  /* Up */
+function doMovement(command){
+console.log('doMovement');
+  switch (command) {
+    case 'up':  /* Up */
       if (y - dy > 0){ 
         y -= dy;
         clear();
@@ -35,7 +40,7 @@ function doKeyDown(evt){
       }
 
       break;
-    case 83:  /* Down  */
+    case 'down':  /* Down  */
       if (y + dy < HEIGHT ){ 
         y += dy;
         clear();
@@ -47,7 +52,7 @@ function doKeyDown(evt){
       }
 
       break;
-    case 65:  /* Left  */
+    case 'left':  /* Left  */
       if (x - dx > 0){ 
         x -= dx;
         clear();
@@ -58,7 +63,7 @@ function doKeyDown(evt){
         }
       }
       break;
-    case 68:  /* Right  */
+    case 'right':  /* Right  */
       if ((x + dx < WIDTH)){ 
         x += dx;
         clear();
@@ -85,7 +90,12 @@ function checkcollision() {
 function draw() {
   clear();          
   ctx.fillStyle = "white";
+
+  //every time we redraw we process the user command - up , down etc...
+  doMovement(command);
+
   rectangle(x, y, 15,15);
+
 }
 
 function rectangle(x,y,w,h) {
@@ -96,7 +106,7 @@ function rectangle(x,y,w,h) {
 }
 
 init();
-window.addEventListener('keydown',doKeyDown,true);
+//window.addEventListener('keydown',doKeyDown,true);
 
 
 
@@ -184,21 +194,32 @@ function getCommand(s) {
   if (word.indexOf('up') !=-1)
   {
       $('#userCommand span').text('UP');
+      command='up';
   }
 
   if (word.indexOf('down') !=-1)
   {
       $('#userCommand span').text('DOWN');
+      command='down';
+
   }
 
   if (word.indexOf('left') !=-1)
   {
       $('#userCommand span').text('LEFT');
+      command='left';
   }
 
   if (word.indexOf('right') !=-1)
   {
       $('#userCommand span').text('RIGHT');
+            command='right';
+  }
+
+    if (word.indexOf('stop') !=-1)
+  {
+      $('#userCommand span').text('STOP');
+            command='';
   }
 
 
