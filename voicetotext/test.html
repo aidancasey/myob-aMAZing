@@ -301,12 +301,8 @@ function getCommand(s) {
 	
 	var res = '**';
 
-var word = s.toLowerCase();
-console.log("word:" + word + "<<");
-
-	switch(word)
+	switch(s.toLowerCase())
 	{
-
 	case "up":
 	  res = 'W';
 	  break;
@@ -322,7 +318,6 @@ console.log("word:" + word + "<<");
 	  break;	 	  
 	}	
 	
- // console.log("result is " + res);
 	return res;
 	
 }
