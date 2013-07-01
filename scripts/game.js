@@ -3,7 +3,7 @@ var ctx;
 var dx = 5;
 var dy = 5;
 var x = 240;
-var y = 5;
+var y = 25;
 var WIDTH = 482;
 var HEIGHT = 482; 
 var img = new Image();
@@ -19,7 +19,7 @@ function clear() {
 function init() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  img.src = "images/maze1.gif";
+  img.src = "images/maze.gif";
   return setInterval(draw, 10);
 }
 
@@ -79,7 +79,7 @@ function checkcollision() {
   var pix = imgd.data;
   for (var i = 0; n = pix.length, i < n; i += 4) {
   console.log(pix[i]);
-  if (pix[i] != 255) {
+  if (pix[i] != 84) {
       collision = 1;
     }
   }
@@ -87,7 +87,7 @@ function checkcollision() {
 
 function draw() {
   clear();          
-  ctx.fillStyle = "purple";
+  ctx.fillStyle = "white";
   rectangle(x, y, 15,15);
 }
 
