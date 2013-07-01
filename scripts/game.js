@@ -9,8 +9,6 @@ var HEIGHT = 482;
 var img = new Image();
 var collision = 0;
 
-
- 
 function clear() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
   ctx.drawImage(img, 0, 0);
@@ -73,7 +71,6 @@ function doKeyDown(evt){
       break;
   }
 }
-
 function checkcollision() {
   var imgd = ctx.getImageData(x, y, 15, 15);
   var pix = imgd.data;
@@ -100,4 +97,3 @@ function rectangle(x,y,w,h) {
 
 init();
 window.addEventListener('keydown',doKeyDown,true);
-
