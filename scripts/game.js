@@ -4,24 +4,26 @@ var dx = 5;
 var dy = 5;
 var x = 240;
 var y = 25;
-var WIDTH = 482;
-var HEIGHT = 482; 
 var img = new Image();
 var collision = 0;
 
 var command = "";
 
+var maze = {};
+maze.width = 482;
+maze.height = 482;
+
+
 
 function setPosition(xPos,yPos)
 {
- // alert(xPos);
   x= xPos;
   y = yPos;
 }
 
 
 function clear() {
-  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  ctx.clearRect(0, 0, maze.width, maze.height);
   ctx.drawImage(img, 0, 0);
 }
 
@@ -48,7 +50,7 @@ console.log('doMovement');
 
       break;
     case 'down':  /* Down  */
-      if (y + dy < HEIGHT ){ 
+      if (y + dy < maze.height ){ 
         y += dy;
         clear();
         checkcollision();
@@ -71,7 +73,7 @@ console.log('doMovement');
       }
       break;
     case 'right':  /* Right  */
-      if ((x + dx < WIDTH)){ 
+      if ((x + dx < maze.width)){ 
         x += dx;
         clear();
         checkcollision();
