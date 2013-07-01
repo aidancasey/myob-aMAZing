@@ -12,6 +12,13 @@ var collision = 0;
 var command = "";
 
 
+function setPosition(xPos,yPos)
+{
+ // alert(xPos);
+  x= xPos;
+  y = yPos;
+}
+
 
 function clear() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
