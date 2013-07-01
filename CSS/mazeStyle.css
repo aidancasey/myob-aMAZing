@@ -24,13 +24,6 @@
     text-align: center;
 }
 
-#canvas{
-    width: 485px;
-    height:485px;
-    /*margin: 1px;*/
-    padding: 0px;
-}
-
 #ScoreCol{
     width: 220px;
 }
