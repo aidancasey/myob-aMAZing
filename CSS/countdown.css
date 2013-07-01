@@ -16,17 +16,17 @@
 
 #holder {
   background: url(../images/countdown/time-placeholder.png) no-repeat;
-  width: 383px;
-  height: 383px;
+  width: 280px;
+  height: 100px;
   margin: auto;
   border: 1px solid #000000;
 }
 
-.cntSeparator { display: none; }
+.cntSeparator { display:  none; }
 
 .cntDigit {
-  margin-top: 148px !important;
+  margin-top: 5px !important;
 }
 
-  .cntDigit#cnt_0 { margin-left: 52px; }
+  .cntDigit#cnt_0 { margin-left: 2px; }
   .cntDigit#cnt_2 { margin-left: 7px; }
