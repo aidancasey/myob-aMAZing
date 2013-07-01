@@ -1,7 +1,7 @@
-#score{
+.score{
     border: 1px solid #000000;
-    height:70px;
-    width: 220px;
+    height:100px;
+    width: 275px;
     word-wrap: break-word;
     margin: 0px;
     padding: 0px;
@@ -10,7 +10,7 @@
 #command{
     border: 1px solid #000000;
     height:415px;
-    width: 220px;
+    width: 275px;
     word-wrap: break-word;
     margin: 0px;
     padding: 0px;

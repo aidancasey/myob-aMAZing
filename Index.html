@@ -5,14 +5,29 @@
     <link rel="stylesheet" href="css/mazeStyle.css">
     <link rel="stylesheet" href="css/button.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="scripts/jquery.countdown.js"></script>
+    <link href="css/media.css" rel="stylesheet" type="text/css" />
+    <script>
+      $(function(){
+        $(".digits").countdown({
+          image: "images/countdown/digits.png",
+          format: "mm:ss",
+          startTime: "03:00"
+        });
+      });
+    </script>
 </head>
 <body>  
   <table border="1">
     <tr valign="top">
       <td id="ScoreCol">
           <div>
-            <div id="score">
+<!--             <div id="score">
               <h1>Score:</h1>
+            </div> -->
+            <div id="holder" class="score">
+              <div class="digits"></div>
             </div>
             <div id="command">
               <div class="browser-landing" id="main">
