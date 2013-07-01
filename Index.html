@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-    
+    <link rel="stylesheet" href="css/mazeStyle.css">
 </head>
 <body>  
   <table border="1">
-    <tr>
-      <td>
-        <div>Scores:</div>
-        <div>Coomand:</div>
+    <tr valign="top">
+      <td id="ScoreCol">
+          <div>
+            <div id="score">ScoresScoresScoresScoresScores:</div>
+            <div id="command">Coomand:</div>
+          </div>
       </td>
-      <td>    
+      <td id="MazeCol">    
          <div>
            <canvas id="canvas" width="482" height="482">
              This text is displayed if your browser does not support HTML5 Canvas. Azure web site.
            </canvas>
          </div>
        </td>
-       <td>
-        Quiz.
-       <td/>
+       <td id="Quizcol">
+           <div id="qiuz">
+               Quiz.
+           <div/>
     </tr>
   </table>
 

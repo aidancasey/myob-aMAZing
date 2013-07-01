@@ -1,0 +1,21 @@
+#score{
+    border: 1px solid #000000;
+    height:150;
+  }
+
+#command{
+    border: 1px solid #000000;
+    
+ }
+#qiuz{
+    border: 1px solid #000000;
+}
+#ScoreCol{
+    width: 20%;
+}
+#MazeCol{
+width:60%;
+}
+#Quizcol{
+    width: 20%;
+}
