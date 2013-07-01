@@ -11,7 +11,7 @@ var command = "";
 var maze = {};
 maze.width = 482;
 maze.height = 482;
-
+maze.finishLineY = 450;
 
 
 function setPosition(xPos,yPos){
@@ -103,11 +103,40 @@ function checkcollision() {
   return false;
 }
 
-function gameLoop() {
-  
+function checkGameOver() {
+
+   if (y >= maze.finishLineY)
+  {
+    return true;
+  }
+  return false;
+}
+
+function doGameOver()
+{
+  stopTheClock();
+  tellUserGameOver();
+}
+
+function stopTheClock(){
+alert('stop the clock');  
+}
+
+function tellUserGameOver(){
+alert('Game Over');  
+}  
+
+
+
+function gameLoop() {  
   clearBlock();          
   processCommand(command);
   drawBlock(x, y, 15,15);
+  if(checkGameOver()){
+    //game over we have a winner
+
+    doGameOver();
+      }
 }
 
 function show_Info(message)

@@ -74,6 +74,14 @@ function doKeyDown(evt){
   }
 }
 
+function checkGameOver() {
+  if (y > 450)
+  {
+    return true;
+  }
+}
+
+
 function checkcollision() {
   var imgd = ctx.getImageData(x, y, 15, 15);
   var pix = imgd.data;
