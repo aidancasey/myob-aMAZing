@@ -31,7 +31,7 @@
     padding: 1px;
 }
 
-/*#ScoreCol{
+#ScoreCol{
     width: 220px;
 }
 #MazeCol{
@@ -40,5 +40,5 @@
 }
 #Quizcol{
     width: 400px;
-    height:482px;
-}*/
+    height:485px;
+}
