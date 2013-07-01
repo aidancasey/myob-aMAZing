@@ -28,12 +28,7 @@ var HEIGHT = 482;
 var img = new Image();
 var collision = 0;
 
-function rect(x,y,w,h) {
-  ctx.beginPath();
-  ctx.rect(x,y,w,h);
-  ctx.closePath();
-  ctx.fill();
-}
+
  
 function clear() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
@@ -118,7 +113,7 @@ function checkcollision() {
 function draw() {
   clear();          
   ctx.fillStyle = "purple";
-  rect(x, y, 15,15);
+  ANIMATION.rectangle(x, y, 15,15);
 }
 
 init();

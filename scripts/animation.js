@@ -8,12 +8,13 @@ var ANIMATION = (function () {
 	_canvas = canvas;
     }
 
-    me.rectangle = function(x,y,w,h,colour) {
-      _canvas.beginPath();
-	  _canvas.rect(x,y,w,h);
-	  _canvas.closePath();
-	  _canvas.fillStyle   = colour;
-	  _canvas.fill();
-    }
+
+me.rectangle = function rect(x,y,w,h) {
+  ctx.beginPath();
+  ctx.rect(x,y,w,h);
+  ctx.closePath();
+  ctx.fill();
+}
+
 	return me;
 }());
