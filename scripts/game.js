@@ -5,7 +5,6 @@ var dy = 5;
 var x = 240;
 var y = 25;
 var img = new Image();
-var collision = 0;
 
 var command = "";
 
@@ -58,10 +57,8 @@ console.log('processCommand');
     case 'up':
       if (y - dy > 0){ 
         y -= dy;
-        checkcollision();
-        if (collision == 1){
+        if (checkcollision()){
           y += dy;
-          collision = 0;
         } 
       }
 
@@ -69,32 +66,27 @@ console.log('processCommand');
     case 'down':
       if (y + dy < maze.height ){ 
         y += dy;
-        checkcollision();
-        if (collision == 1){
+        if (checkcollision()){
           y -= dy;
-          collision = 0;
-        }
+        } 
+
       }
 
       break;
     case 'left':
       if (x - dx > 0){ 
         x -= dx;
-        checkcollision();
-        if (collision == 1){
+        if (checkcollision()){
           x += dx;
-          collision = 0;
-        }
+        } 
       }
       break;
     case 'right': 
       if ((x + dx < maze.width)){ 
         x += dx;
-        checkcollision();
-        if (collision == 1){
+        if (checkcollision()){
           x -= dx;
-          collision = 0;
-        }
+        } 
       }
       break;
   }
@@ -105,9 +97,10 @@ function checkcollision() {
   for (var i = 0; n = pix.length, i < n; i += 4) {
   //console.log(pix[i]);
   if (pix[i] != 84) {
-      collision = 1;
+      return true;
     }
   }
+  return false;
 }
 
 function gameLoop() {
@@ -135,7 +128,7 @@ if (!('webkitSpeechRecognition' in window)) {
 } 
 else {
   
-    start_button.style.display = 'inline-block';
+  start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
