@@ -163,7 +163,6 @@ function capitalize(s) {
   return s.replace(first_char, function(m) { return m.toUpperCase(); });
 }
 
-
 function startButton(event) {
   if (recognizing) {
     recognition.stop();
@@ -175,14 +174,10 @@ function startButton(event) {
   ignore_onend = false;
   final_span.innerHTML = '';
   interim_span.innerHTML = '';
-  
- // showInfo('info_allow');
- //showButtons('none');
   start_timestamp = event.timeStamp;
 }
 
 var current_style;
-
     </script>
   </body>
 </html>
