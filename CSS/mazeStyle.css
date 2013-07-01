@@ -17,8 +17,8 @@
  }
 #qiuz{
     border: 1px solid #000000;
-    width: 400px;
-    height:485px;
+    width: 450px;
+    height:515px;
     margin: 0px;
     padding: 0px;
     text-align: center;
@@ -26,12 +26,13 @@
 
 #ScoreCol{
     width: 220px;
+     height:515px;
 }
 #MazeCol{
     width:485px;
-    height:485px;
+    height:515px;
 }
 #Quizcol{
-    width: 400px;
-    height:485px;
+    width: 450px;
+    height:515px;
 }
