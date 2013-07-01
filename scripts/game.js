@@ -22,7 +22,7 @@ function init() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   img.src = "images/maze.gif";
-  return setInterval(draw, 100);
+  return setInterval(draw, 150);
 }
 
 function doMovement(command){
@@ -214,6 +214,12 @@ function getCommand(s) {
   {
       $('#userCommand span').text('RIGHT');
             command='right';
+  }
+
+    if (word.indexOf('stop') !=-1)
+  {
+      $('#userCommand span').text('STOP');
+            command='';
   }
 
 
