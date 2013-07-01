@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="css/mazeStyle.css">
     <style>
     #results {
@@ -44,6 +45,9 @@
               
 <!-- START AIDAN ADDING VOICE TO TEXT CONTECT -->
           <div class="browser-landing" id="main">
+          <div id="userCommand">
+          <span>"USER Command is ..."</span>
+          </div>
                 <div class="compact marquee">       
                   <div id="div_start">
                     <button id="start_button" onclick="startButton(event)">START</button>
@@ -138,6 +142,28 @@ function getCommand(s) {
 
   var word = s.toLowerCase().replace(/\s/g, '');
   
+  if (word.indexOf('up') !=-1)
+  {
+      $('#userCommand span').text('UP');
+  }
+
+  if (word.indexOf('down') !=-1)
+  {
+      $('#userCommand span').text('DOWN');
+  }
+
+  if (word.indexOf('left') !=-1)
+  {
+      $('#userCommand span').text('LEFT');
+  }
+
+  if (word.indexOf('right') !=-1)
+  {
+      $('#userCommand span').text('RIGHT');
+  }
+
+
+
   console.log("Word:>>" + word + "<<");
   
   switch(word)
