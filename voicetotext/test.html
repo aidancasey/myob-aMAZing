@@ -1,15 +1,6 @@
-<html class="no-js consumer" lang="en">
+<html>
   <head>
     <style>
-#info {
-    font-size: 20px;
-    }
-    #div_start {
-    float: right;
-    }
-    #headline {
-    text-decoration: none
-    }
     #results {
     font-size: 14px;
     font-weight: bold;
@@ -36,46 +27,21 @@
     .marquee {
     margin: 20px auto;
     }
-
-    #buttons {
-    margin: 10px 0;
-    position: relative;
-    top: -50px;
-    }
-
-    #copy {
-    margin-top: 20px;
-    }
-
-    #copy > div {
-    display: none;
-    margin: 0 70px;
-    }
-    </style>
-    <style>
-a.c1 {font-weight: normal;}
-    </style>
+   </style>
   </head>
   <body class="" id="grid">
     <div class="browser-landing" id="main">
-      <div class="compact marquee">
-       
+      <div class="compact marquee">       
         <div id="div_start">
           <button id="start_button" onclick="startButton(event)">START</button>
         </div>
         <div id="results">
-          <span class="final" id="final_span"></span> <span class="interim" id=
-          "interim_span"></span>
+          <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>        
       </div>
-    </div><script>
+    </div>
+    <script>
 
-
-//showInfo('info_start');
-
-
-
-var create_email = false;
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
@@ -90,15 +56,11 @@ if (!('webkitSpeechRecognition' in window)) {
 
   recognition.onstart = function() {
     recognizing = true;
-   // showInfo('info_speak_now');
-    
   };
 
   recognition.onerror = function(event) {
     if (event.error == 'no-speech') {
-      
-    //  showInfo('info_no_speech');
-      ignore_onend = true;
+            ignore_onend = true;
     }
     if (event.error == 'audio-capture') {
       
@@ -132,10 +94,7 @@ if (!('webkitSpeechRecognition' in window)) {
       range.selectNode(document.getElementById('final_span'));
       window.getSelection().addRange(range);
     }
-    if (create_email) {
-      create_email = false;
-      createEmail();
-    }
+
   };
 
   recognition.onresult = function(event) {
@@ -190,7 +149,7 @@ function getCommand(s) {
 
 function upgrade() {
   start_button.style.visibility = 'hidden';
-//  showInfo('info_upgrade');
+
 }
 
 var two_line = /\n\n/g;
@@ -204,35 +163,6 @@ function capitalize(s) {
   return s.replace(first_char, function(m) { return m.toUpperCase(); });
 }
 
-function createEmail() {
-  var n = final_transcript.indexOf('\n');
-  if (n < 0 || n >= 80) {
-    n = 40 + final_transcript.substring(40).indexOf(' ');
-  }
-  var subject = encodeURI(final_transcript.substring(0, n));
-  var body = encodeURI(final_transcript.substring(n + 1));
-  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-}
-
-function copyButton() {
-  if (recognizing) {
-    recognizing = false;
-    recognition.stop();
-  }
-
-//  showInfo('');
-}
-
-function emailButton() {
-  if (recognizing) {
-    create_email = true;
-    recognizing = false;
-    recognition.stop();
-  } else {
-    createEmail();
-  }
-
-}
 
 function startButton(event) {
   if (recognizing) {
@@ -250,7 +180,6 @@ function startButton(event) {
  //showButtons('none');
   start_timestamp = event.timeStamp;
 }
-
 
 var current_style;
 
