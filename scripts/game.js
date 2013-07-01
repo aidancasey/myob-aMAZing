@@ -15,38 +15,31 @@ maze.height = 482;
 
 
 
-function setPosition(xPos,yPos)
-{
+function setPosition(xPos,yPos){
   x= xPos;
   y = yPos;
 }
 
-
-function setCanvas()
-{
+function setCanvas(){
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
 }
 
-function setImageSource()
-{
+function setImageSource(){
   img.src = "images/maze.gif";
 }
 
-
-function startGameLoop()
-{
+function startGameLoop(){
   return setInterval(gameLoop, 200);
 }
-
 
 function clearBlock() {
   ctx.clearRect(0, 0, maze.width, maze.height);
   ctx.drawImage(img, 0, 0);
 }
 
-
 function drawBlock(x,y,w,h) {
+  ctx.fillStyle = "white";
   ctx.beginPath();
   ctx.rect(x,y,w,h);
   ctx.closePath();
@@ -59,13 +52,12 @@ function init() {
   startGameLoop();
 }
 
-function doMovement(command){
-console.log('doMovement');
+function processCommand(command){
+console.log('processCommand');
   switch (command) {
-    case 'up':  /* Up */
+    case 'up':
       if (y - dy > 0){ 
         y -= dy;
-       // clear();
         checkcollision();
         if (collision == 1){
           y += dy;
@@ -74,10 +66,9 @@ console.log('doMovement');
       }
 
       break;
-    case 'down':  /* Down  */
+    case 'down':
       if (y + dy < maze.height ){ 
         y += dy;
-       // clear();
         checkcollision();
         if (collision == 1){
           y -= dy;
@@ -86,10 +77,9 @@ console.log('doMovement');
       }
 
       break;
-    case 'left':  /* Left  */
+    case 'left':
       if (x - dx > 0){ 
         x -= dx;
-       // clear();
         checkcollision();
         if (collision == 1){
           x += dx;
@@ -97,10 +87,9 @@ console.log('doMovement');
         }
       }
       break;
-    case 'right':  /* Right  */
+    case 'right': 
       if ((x + dx < maze.width)){ 
         x += dx;
-      //  clear();
         checkcollision();
         if (collision == 1){
           x -= dx;
@@ -114,7 +103,7 @@ function checkcollision() {
   var imgd = ctx.getImageData(x, y, 15, 15);
   var pix = imgd.data;
   for (var i = 0; n = pix.length, i < n; i += 4) {
-  console.log(pix[i]);
+  //console.log(pix[i]);
   if (pix[i] != 84) {
       collision = 1;
     }
@@ -122,31 +111,31 @@ function checkcollision() {
 }
 
 function gameLoop() {
+  
   clearBlock();          
-  ctx.fillStyle = "white";
-
-  //every time we redraw we process the user command - up , down etc...
-  doMovement(command);
-
+  processCommand(command);
   drawBlock(x, y, 15,15);
-
 }
 
+function show_Info(message)
+{
+  console.log(message);
+}
 
-
+//let the game commence!
 init();
-//window.addEventListener('keydown',doKeyDown,true);
-
-
 
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 if (!('webkitSpeechRecognition' in window)) {
+  //does't fire with Chrome as we have web kit speech recog..
   upgrade();
-} else {
-  start_button.style.display = 'inline-block';
+} 
+else {
+  
+    start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
@@ -160,15 +149,15 @@ if (!('webkitSpeechRecognition' in window)) {
             ignore_onend = true;
     }
     if (event.error == 'audio-capture') {
-      
- //     showInfo('info_no_microphone');
+     
+      show_Info('info_no_microphone');
       ignore_onend = true;
     }
     if (event.error == 'not-allowed') {
       if (event.timeStamp - start_timestamp < 100) {
-      //  showInfo('info_blocked');
+       show_Info('info_blocked');
       } else {
-       // showInfo('info_denied');
+       show_Info('info_denied');
       }
       ignore_onend = true;
     }
@@ -184,7 +173,7 @@ if (!('webkitSpeechRecognition' in window)) {
     //  showInfo('info_start');
       return;
     }
-   // showInfo('');
+
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
@@ -214,6 +203,11 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 
+function showFriendlyCommandName(cmd)
+{
+  $('#userCommand span').text(cmd);
+}
+
 function getCommand(s) {
   
   var res = '**';
@@ -222,37 +216,26 @@ function getCommand(s) {
   
   if (word.indexOf('up') !=-1)
   {
-      $('#userCommand span').text('UP');
       command='up';
   }
-
   if (word.indexOf('down') !=-1)
   {
-      $('#userCommand span').text('DOWN');
-      command='down';
-
+       command='down';
   }
-
   if (word.indexOf('left') !=-1)
   {
-      $('#userCommand span').text('LEFT');
       command='left';
   }
-
   if (word.indexOf('right') !=-1)
   {
-      $('#userCommand span').text('RIGHT');
-            command='right';
+      command='right';
   }
-
-    if (word.indexOf('stop') !=-1)
+  if (word.indexOf('stop') !=-1)
   {
-      $('#userCommand span').text('STOP');
-            command='';
+     command='';
   }
 
-
-
+  showFriendlyCommandName(command);
   console.log("Word:>>" + word + "<<");
   
   switch(word)
@@ -273,7 +256,6 @@ function getCommand(s) {
   } 
   console.log("Res" + res);
   return res;
-  
 }
 
 
