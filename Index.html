@@ -4,10 +4,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="css/mazeStyle.css">
     <link rel="stylesheet" href="css/button.css">
-    
     <link href="css/countdown.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="scripts/jquery.countdown.js"></script>
+    <script src="scripts/quizloading.js"></script>
     
     <script>
       $(function(){
@@ -52,21 +52,22 @@
          </div>
        </td>
        <td id="Quizcol">
-           <div id="qiuz">
-               <h1>Quiz.</h1>
-           <div/>
-          <div id ="Debug">
-            DEBUG AREA
-            change start position<input type="textbox" id="txtStartPosX" value="x">
-            <input type="textbox" id="txtStartPosY" value="y">
-            <button id="setPosition" onclick="var x = $('input[id=txtStartPosX]').val();
-            var y = $('input[id=txtStartPosY]').val();
-            setPosition(x,y)">Set</button>              
-          </div>
-
+          <div id="question"><h1>Quiz.</h1><div/>
+          <div id="qiuz">
+            
+          <div/>
+          <div id="answer"><div/>
         </td>
     </tr>
   </table>
+  <div id ="Debug">
+  DEBUG AREA
+  change start position<input type="textbox" id="txtStartPosX" value="x">
+  <input type="textbox" id="txtStartPosY" value="y">
+  <button id="setPosition" onclick="var x = $('input[id=txtStartPosX]').val();
+  var y = $('input[id=txtStartPosY]').val();
+  setPosition(x,y)">Set</button>              
+   </div>
 <script src="scripts/game.js"></script>
 </body>
 </html>
