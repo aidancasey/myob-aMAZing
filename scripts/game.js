@@ -22,7 +22,7 @@ function init() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   img.src = "images/maze.gif";
-  return setInterval(draw, 150);
+  return setInterval(draw, 200);
 }
 
 function doMovement(command){
