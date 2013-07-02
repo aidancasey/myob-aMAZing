@@ -6,26 +6,27 @@
     <link rel="stylesheet" href="css/button.css">
     <link href="css/countdown.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="scripts/jquery.countdown.js"></script>
-    <script src="scripts/quizloading.js"></script>
-    
-    <script>
-      $(function(){
-        $(".digits").countdown({
-          image: "images/countdown/digits.png",
-          format: "mm:ss",
-          startTime: "03:00"
-        });
-      });
-    </script>
+   <script src="scripts/timer.js"></script>    
 </head>
-<body>  
+<body>
+
   <table border="1">
     <tr valign="top">
       <td id="ScoreCol">
           <div>
             <div id="holder" class="score">
-              <div class="digits"></div>
+                <div class="timer">
+                            <span class="hour">00</span>:<span class="minute">00</span>:<span class="second">00</span>
+                        </div>
+                        <div class="control">
+                            <button onClick="timer.start(1000)">Start</button> 
+                            <button onClick="timer.stop()">Stop</button> 
+                            <button onClick="timer.reset(60)">Reset</button> 
+                            <button onClick="timer.mode(1)">Count up</button> 
+                            <button onClick="timer.mode(0)">Count down</button>
+                        </div>
+                </div>
+
             </div>
             <div id="command">
               <div class="browser-landing" id="main">

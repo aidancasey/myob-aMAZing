@@ -52,7 +52,6 @@ function init() {
 }
 
 function processCommand(command){
-console.log('processCommand');
   switch (command) {
     case 'up':
       if (y - dy > 0){ 
