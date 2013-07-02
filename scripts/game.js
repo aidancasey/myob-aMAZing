@@ -149,7 +149,7 @@ function checkcollision() {
 
 function checkGameOver() {
 
-   if (y >= maze.finishLineY)
+   if ((y >= 400) && (x>=210))
   {
     return true;
   }
