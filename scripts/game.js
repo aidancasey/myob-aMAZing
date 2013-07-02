@@ -95,7 +95,8 @@ function checkcollision() {
   var pix = imgd.data;
   for (var i = 0; n = pix.length, i < n; i += 4) {
   //console.log(pix[i]);
-  if (pix[i] != 84) {
+
+  if (pix[i] != 83) {
       return true;
     }
   }
