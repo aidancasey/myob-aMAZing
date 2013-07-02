@@ -214,8 +214,10 @@ else {
       return;
     }
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-    
+
         final_transcript = getCommand(event.results[i][0].transcript) + ' ' + event.results[i][0].transcript + '\n' + final_transcript;
+		getCommand(event.results[i][0].transcript);
+        final_transcript = event.results[i][0].transcript + '\n' + final_transcript;
 
     }
     final_transcript = capitalize(final_transcript);
@@ -260,24 +262,6 @@ function getCommand(s) {
   showFriendlyCommandName(command);
   console.log("Word:>>" + word + "<<");
   
-  switch(word)
-  {
-  case "up":
-    res = 'W';
-    break;
-  case "down":
-    res = 'S';
-    break;
-  case "left":    
-    res = 'A';
-    break;
-  case "right":
-  //case "rod":
-    res = 'D';
-    break;      
-  } 
-  console.log("Res" + res);
-  return res;
 }
 
 

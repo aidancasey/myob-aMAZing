@@ -19,7 +19,7 @@
       });
     </script>
 </head>
-<body>  
+<body>
   <table border="1">
     <tr valign="top">
       <td id="ScoreCol">
@@ -32,19 +32,19 @@
                 <div id="userCommand">
                   <span>"USER Command is ..."</span>
                 </div>
-                <div class="compact marquee">       
+                <div class="compact marquee">
                   <div id="div_start">
                     <button id="start_button" onclick="startButton(event)">START</button>
                   </div>
                   <div id="results">
                     <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
-                  </div>        
+                  </div>
                 </div>
               </div>
             </div>
           </div>
       </td>
-      <td id="MazeCol">    
+      <td id="MazeCol">
          <div>
            <canvas id="canvas" width="485px" height="485px">
              This text is displayed if your browser does not support HTML5 Canvas. Azure web site.
@@ -54,7 +54,7 @@
        <td id="Quizcol">
           <div id="question"><h1>Quiz.</h1><div/>
           <div id="qiuz">
-            
+
           <div/>
           <div id="answer"><div/>
         </td>
@@ -66,7 +66,59 @@
   <input type="textbox" id="txtStartPosY" value="y">
   <button id="setPosition" onclick="var x = $('input[id=txtStartPosX]').val();
   var y = $('input[id=txtStartPosY]').val();
-  setPosition(x,y)">Set</button>              
+  setPosition(x,y)">Set</button>
+  setPosition(x,y)">Set</button>
+<body id="body">  
+  <div align="center">
+		<table id="mainContainer" border="0">
+			<tr valign="top">
+				<td id="ScoreCol">
+						<div>
+							<div id="holder" class="score">
+								<div class="digits"></div>
+							</div>
+							<div id="command">
+								<div class="browser-landing" id="main">
+									<div id="userCommand">
+										<span>"Your commands (and thoughts) ..."</span>
+									</div>
+									<div class="compact marquee">       
+										<div id="div_start">
+											<button id="start_button" onclick="startButton(event)">START</button>
+										</div>
+										<div id="results">
+											<span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
+										</div>        
+									</div>
+								</div>
+							</div>
+						</div>
+				</td>
+				<td id="MazeCol">    
+					 <div>
+						 <canvas id="canvas" width="485px" height="485px">
+							 This text is displayed if your browser does not support HTML5 Canvas. Azure web site.
+						 </canvas>
+					 </div>
+				 </td>
+				 <td id="Quizcol">
+						<div id="question" style='font-size:16pt;'>Quiz.<div/>
+						<div id="qiuz">
+							
+						<div/>
+						<div id="answer"><div/>
+					</td>
+			</tr>
+		</table>
+		
+		<div id ="Debug">
+		DEBUG AREA
+		change start position<input type="textbox" id="txtStartPosX" value="x">
+		<input type="textbox" id="txtStartPosY" value="y">
+		<button id="setPosition" onclick="var x = $('input[id=txtStartPosX]').val();
+		var y = $('input[id=txtStartPosY]').val();
+		setPosition(x,y)">Set</button>              
+		 </div>
    </div>
 <script src="scripts/game.js"></script>
 </body>

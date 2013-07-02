@@ -20,6 +20,7 @@
   height: 100px;
   margin: auto;
   border: 1px solid #000000;
+  border: 0px solid #000000;
 }
 
 .cntSeparator { display:  none; }
