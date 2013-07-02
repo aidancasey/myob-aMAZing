@@ -77,10 +77,10 @@ function pictureGameCorrectAnswer()
 
 function processCommand(command){
   switch (command) {
- 
 case 'help':
 if (!isPictureGameRunning)
 {
+  console.log('help');
      isPictureGameRunning = true;
      //stop timer
     stopTheClock();
@@ -283,6 +283,11 @@ function getCommand(s) {
   {
       command='up';
   }
+if (word.indexOf('help') !=-1)
+  {
+      command='help';
+  }
+ 
   if (word.indexOf('down') !=-1)
   {
        command='down';
