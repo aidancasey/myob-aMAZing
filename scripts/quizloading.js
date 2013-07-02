@@ -23,22 +23,22 @@ var randPerson="";
 var num=0;
 var img ="";
 
-function loadImage() {
+// function loadImage() {
 
-  var randPerson = images[Math.floor(Math.random() * images.length)];
-  var img = document.createElement("IMG");
-  document.getElementById('qiuz').appendChild(img);
-  img.src =randPerson.images[0];
+//   var randPerson = images[Math.floor(Math.random() * images.length)];
+//   var img = document.createElement("IMG");
+//   document.getElementById('qiuz').appendChild(img);
+//   img.src =randPerson.images[0];
 
-  var timeout=0;
-  for (var i=0;i<randPerson.images.length;i++)
-  { 
-    var temp=randPerson.images[i];
-    var func=function(){img.src =temp};
-    timeout=timeout+3000;
-    window.setTimeout(func,timeout);
-  }
-}
+//   var timeout=0;
+//   for (var i=0;i<randPerson.images.length;i++)
+//   { 
+//     var temp=randPerson.images[i];
+//     var func=function(){img.src =temp};
+//     timeout=timeout+3000;
+//     window.setTimeout(func,timeout);
+//   }
+// }
 
 function StartPictureGame() {
   img = document.createElement("IMG");
@@ -74,5 +74,11 @@ function Reset() {
 }
 
 function CoorectAnswer() {
-
+if (num==5) {return 6000;};
+if (num==4) {return 5000;};
+if (num==3) {return 4000;};
+if (num==2) {return 3000;};
+if (num==1) {return 2000;};
+if (num==0) {return 1000;;
+return 6000;
 }
