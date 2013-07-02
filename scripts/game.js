@@ -175,16 +175,18 @@ alert('Game Over');
 
 
 function gameLoop() {  
-  
+ console.log('gameloop'); 
   if (isPictureGameRunning)
   {
 
-   //  //call Ivans  bool stillRunning Increment() function
-   // if (!stillRunning)
-   // {
-   //   isPictureGameRunning = false;
-   //   startTheClockAgain();
-   // }
+
+   var stillRunning = Increment();
+
+    if (!stillRunning)
+    {
+      isPictureGameRunning = false;
+      startTheClockAgain();
+    }
    return;
   }
 
