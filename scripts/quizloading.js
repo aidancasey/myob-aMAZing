@@ -48,6 +48,7 @@ function StartPictureGame() {
 }
 
 function Increment() {
+  incrementor =incrementor +1;
   if (incrementor % 50 ==0) {
     num=num+1;
     img.src =randPerson.images[num];
@@ -62,6 +63,7 @@ function Increment() {
 
 function Reset() {
   num=0;
+  incrementor=0;
   var element = document.getElementById("qiuz");
   while (element.firstChild) {
   element.removeChild(element.firstChild);
