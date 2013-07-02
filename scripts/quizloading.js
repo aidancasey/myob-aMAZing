@@ -74,11 +74,11 @@ function Reset() {
 }
 
 function CoorectAnswer() {
-if (num==5) {return 6000;};
-if (num==4) {return 5000;};
-if (num==3) {return 4000;};
-if (num==2) {return 3000;};
-if (num==1) {return 2000;};
-if (num==0) {return 1000;};
+if (num==5) {return 60;};
+if (num==4) {return 50;};
+if (num==3) {return 40;};
+if (num==2) {return 30;};
+if (num==1) {return 20;};
+if (num==0) {return 10;};
 return 6000;
 }
