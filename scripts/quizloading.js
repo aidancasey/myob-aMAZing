@@ -51,7 +51,7 @@ function StartPictureGame() {
 function Increment() {
  console.log('increment');
   incrementor =incrementor +1;
-  if (incrementor % 50 ==0) {
+  if (incrementor % 30 ==0) {
     console.log('changing picture');
     num=num+1;
     img.src =randPerson.images[num];
