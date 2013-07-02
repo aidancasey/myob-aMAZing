@@ -6,7 +6,8 @@ var x = 240;
 var y = 25;
 var img = new Image();
 var countDownFrom = 100;
-
+var isPictureGameRunning = false;
+var pictureQuestionAnswer ="";
 
 var command = "";
 
@@ -60,10 +61,32 @@ function startGame() {
     timer.start(1000);
 }
 
+function startPictureGame()
+{
+   // pictureQuestionAnswer = Start();
+}
+
+function pictureGameCorrectAnswer()
+{
+  //tell picture game the answer is correct 
+  // add the appropiate number of milliseconds to timer and continue
+  isPictureGameRunning = false;
+
+}
 
 
 function processCommand(command){
   switch (command) {
+case 'help':
+if (!isPictureGameRunning)
+{
+  console.log('help');
+     isPictureGameRunning = true;
+     //stop timer
+    stopTheClock();
+    startPictureGame();
+}
+break;
     case 'up':
       if (y - dy > 0){ 
         y -= dy;
@@ -143,6 +166,14 @@ alert('Game Over');
 
 
 function gameLoop() {  
+  
+  if (isPictureGameRunning)
+  {
+
+    //call Ivans Increment() function
+   return;
+  }
+
   clearBlock();          
   processCommand(command);
   drawBlock(x, y, 15,15);
@@ -252,6 +283,11 @@ function getCommand(s) {
   {
       command='up';
   }
+if (word.indexOf('help') !=-1)
+  {
+      command='help';
+  }
+ 
   if (word.indexOf('down') !=-1)
   {
        command='down';
