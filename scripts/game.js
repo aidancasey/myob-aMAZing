@@ -214,10 +214,8 @@ else {
       return;
     }
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-
-        final_transcript = getCommand(event.results[i][0].transcript) + ' ' + event.results[i][0].transcript + '\n' + final_transcript;
-		getCommand(event.results[i][0].transcript);
-        final_transcript = event.results[i][0].transcript + '\n' + final_transcript;
+			getCommand(event.results[i][0].transcript);
+      final_transcript = event.results[i][0].transcript + '\n' + final_transcript;
 
     }
     final_transcript = capitalize(final_transcript);
