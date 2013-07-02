@@ -63,7 +63,7 @@ function startGame() {
 
 function startPictureGame()
 {
-   // pictureQuestionAnswer = Start();
+    pictureQuestionAnswer = StartPictureGame();
 }
 
 function pictureGameCorrectAnswer()
