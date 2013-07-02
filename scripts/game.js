@@ -168,8 +168,10 @@ timer.stop();
 
 }
 
-//function addTimeToClock(){
-//  var currentTime = timer.getTime();
+function addTimeToClock( bonusTime){
+  var currentTime = timer.getTime();
+  newTime = currentTime+bonusTime;
+  timer.reset(newTime);
 
 //}
 function startTheClock(){
@@ -192,8 +194,13 @@ function gameLoop() {
 
     if (answerCorrect)
     {
-      alert('correct answer ');
+    isPictureGameRunning = false;
+    //start clock again
+    int bonusTime = CorrectAnswer();
+    addTimeToClock(bonusTime);
+    
     }
+
    var stillRunning = Increment();
 
     if (!stillRunning)
