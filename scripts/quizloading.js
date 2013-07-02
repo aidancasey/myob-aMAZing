@@ -18,14 +18,13 @@ var juliaImg = [
 
 var images = [{"name":"Jennifer Lopez", "images":jenniferImg},{"name":"Julia Roberts","images":juliaImg}];
 
+var incrementor=0;
+var randPerson="";
+var num=0;
+
 function loadImage() {
 
   var randPerson = images[Math.floor(Math.random() * images.length)];
-  // var element = document.getElementById("qiuz");
-  //   while (element.firstChild) {
-  //     element.removeChild(element.firstChild);
-  //   }
-
   var img = document.createElement("IMG");
   document.getElementById('qiuz').appendChild(img);
   img.src =randPerson.images[0];
@@ -43,19 +42,30 @@ function loadImage() {
 function StartPictureGame() {
   var img = document.createElement("IMG");
   document.getElementById('qiuz').appendChild(img);
-  var randPerson = images[Math.floor(Math.random() * images.length)];
-  img.src =randPerson.images[0];
+  randPerson = images[Math.floor(Math.random() * images.length)];
+  img.src =randPerson.images[num];
   return randPerson.name;
 }
 
 function Increment() {
-  var randPerson = images[Math.floor(Math.random() * images.length)];
-  img.src =randPerson.images[0];
-  var timeout=0;
+  if (incrementor % 50 ==0) {
+    num=num+1;
+    img.src =randPerson.images[num];
+  };
+
+  if (num>5) {
+    Reset();
+   return false;
+  };
+  return true;
 }
 
 function Reset() {
-
+  num=0;
+  var element = document.getElementById("qiuz");
+  while (element.firstChild) {
+  element.removeChild(element.firstChild);
+  }
 }
 
 function CoorectAnswer() {
