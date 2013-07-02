@@ -115,6 +115,6 @@ $(document).ready(function(e)
             }
         }
     );
-    timer.reset(60);
+    timer.reset(100);
     timer.mode(0);
 });

@@ -5,6 +5,8 @@ var dy = 5;
 var x = 240;
 var y = 25;
 var img = new Image();
+var countDownFrom = 100;
+
 
 var command = "";
 
@@ -45,11 +47,20 @@ function drawBlock(x,y,w,h) {
   ctx.fill();
 }
 
-function init() {
+function loadGame() {
   setCanvas();
   setImageSource();
-  startGameLoop();
+  timer.reset(countDownFrom);
+startGameLoop();
+
+
 }
+
+function startGame() {
+    timer.start(1000);
+}
+
+
 
 function processCommand(command){
   switch (command) {
@@ -128,6 +139,9 @@ alert('Game Over');
 
 
 
+
+
+
 function gameLoop() {  
   clearBlock();          
   processCommand(command);
@@ -144,8 +158,6 @@ function show_Info(message)
   console.log(message);
 }
 
-//let the game commence!
-init();
 
 var final_transcript = '';
 var recognizing = false;
@@ -280,6 +292,9 @@ function capitalize(s) {
 }
 
 function startButton(event) {
+
+  startGame();
+
   if (recognizing) {
     recognition.stop();
     return;
