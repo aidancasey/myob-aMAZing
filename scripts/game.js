@@ -5,13 +5,15 @@ var dy = 5;
 var x = 240;
 var y = 25;
 var img = new Image();
+var countDownFrom = 100;
+
 
 var command = "";
 
 var maze = {};
 maze.width = 482;
 maze.height = 482;
-
+maze.finishLineY = 450;
 
 
 function setPosition(xPos,yPos){
@@ -45,14 +47,22 @@ function drawBlock(x,y,w,h) {
   ctx.fill();
 }
 
-function init() {
+function loadGame() {
   setCanvas();
   setImageSource();
-  startGameLoop();
+  timer.reset(countDownFrom);
+startGameLoop();
+
+
 }
 
+function startGame() {
+    timer.start(1000);
+}
+
+
+
 function processCommand(command){
-console.log('processCommand');
   switch (command) {
     case 'up':
       if (y - dy > 0){ 
@@ -96,18 +106,51 @@ function checkcollision() {
   var pix = imgd.data;
   for (var i = 0; n = pix.length, i < n; i += 4) {
   //console.log(pix[i]);
-  if (pix[i] != 84) {
+
+  if (pix[i] != 83) {
       return true;
     }
   }
   return false;
 }
 
-function gameLoop() {
-  
+function checkGameOver() {
+
+   if (y >= maze.finishLineY)
+  {
+    return true;
+  }
+  return false;
+}
+
+function doGameOver()
+{
+  stopTheClock();
+  tellUserGameOver();
+}
+
+function stopTheClock(){
+alert('stop the clock');  
+}
+
+function tellUserGameOver(){
+alert('Game Over');  
+}  
+
+
+
+
+
+
+function gameLoop() {  
   clearBlock();          
   processCommand(command);
   drawBlock(x, y, 15,15);
+  if(checkGameOver()){
+    //game over we have a winner
+
+    doGameOver();
+      }
 }
 
 function show_Info(message)
@@ -115,8 +158,6 @@ function show_Info(message)
   console.log(message);
 }
 
-//let the game commence!
-init();
 
 var final_transcript = '';
 var recognizing = false;
@@ -185,8 +226,8 @@ else {
       return;
     }
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-    
-        final_transcript = getCommand(event.results[i][0].transcript) + ' ' + event.results[i][0].transcript + '\n' + final_transcript;
+			getCommand(event.results[i][0].transcript);
+      final_transcript = event.results[i][0].transcript + '\n' + final_transcript;
 
     }
     final_transcript = capitalize(final_transcript);
@@ -231,24 +272,6 @@ function getCommand(s) {
   showFriendlyCommandName(command);
   console.log("Word:>>" + word + "<<");
   
-  switch(word)
-  {
-  case "up":
-    res = 'W';
-    break;
-  case "down":
-    res = 'S';
-    break;
-  case "left":    
-    res = 'A';
-    break;
-  case "right":
-  //case "rod":
-    res = 'D';
-    break;      
-  } 
-  console.log("Res" + res);
-  return res;
 }
 
 
@@ -269,6 +292,9 @@ function capitalize(s) {
 }
 
 function startButton(event) {
+
+  startGame();
+
   if (recognizing) {
     recognition.stop();
     return;
