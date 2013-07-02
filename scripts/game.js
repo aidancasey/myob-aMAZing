@@ -47,15 +47,20 @@ function drawBlock(x,y,w,h) {
   ctx.fill();
 }
 
-function initGame() {
+function loadGame() {
   setCanvas();
   setImageSource();
-  startGameLoop();
-
   timer.reset(countDownFrom);
-  timer.start(1000);
+startGameLoop();
+
 
 }
+
+function startGame() {
+    timer.start(1000);
+}
+
+
 
 function processCommand(command){
   switch (command) {
@@ -306,7 +311,7 @@ function capitalize(s) {
 
 function startButton(event) {
 
-  initGame();
+  startGame();
 
   if (recognizing) {
     recognition.stop();
