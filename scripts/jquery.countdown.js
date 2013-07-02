@@ -138,6 +138,7 @@ jQuery.fn.countdown = function(userOptions)
       {
         var isStart = (digits[elem - 1].current == 0);
 
+
         makeMovement(elem, digits[elem]._max(elem, isStart), true);
         moveDigit(elem - 1);
       }
@@ -163,3 +164,5 @@ jQuery.fn.countdown = function(userOptions)
   intervals.main = setInterval(function(){ moveDigit(digits.length - 1); },
                                1000);
 };
+
+
