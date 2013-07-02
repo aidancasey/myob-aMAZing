@@ -104,6 +104,7 @@ var timer;
  
 $(document).ready(function(e) 
 {
+ 
     timer = new _timer
     (
         function(time)
