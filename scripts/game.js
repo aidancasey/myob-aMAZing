@@ -153,7 +153,16 @@ function doGameOver()
 }
 
 function stopTheClock(){
-alert('stop the clock');  
+timer.stop();
+
+}
+
+//function addTimeToClock(){
+//  var currentTime = timer.getTime();
+
+//}
+function startTheClock(){
+timer.start(1000);
 }
 
 function tellUserGameOver(){
@@ -170,7 +179,12 @@ function gameLoop() {
   if (isPictureGameRunning)
   {
 
-    //call Ivans Increment() function
+   //  //call Ivans  bool stillRunning Increment() function
+   // if (!stillRunning)
+   // {
+   //   isPictureGameRunning = false;
+   //   startTheClockAgain();
+   // }
    return;
   }
 
