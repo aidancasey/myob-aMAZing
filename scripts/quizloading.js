@@ -25,6 +25,7 @@ function loadImage() {
   //   while (element.firstChild) {
   //     element.removeChild(element.firstChild);
   //   }
+
   var img = document.createElement("IMG");
   document.getElementById('qiuz').appendChild(img);
   img.src =randPerson.images[0];
@@ -38,7 +39,18 @@ function loadImage() {
   }
 }
 
-// <div id="image"></div>
-// <div><a href="javascript:image();">click to see image</a></div>
+function Start() {
 
+}
 
+function Increment() {
+
+}
+
+function Reset() {
+
+}
+
+function CoorectAnswer() {
+
+}
