@@ -33,7 +33,7 @@ function loadImage() {
   { 
     var temp=randPerson.images[i];
     var func=function(){img.src =temp};
-    timeout=timeout+3000;
+    timeout=timeout+30000;
     window.setTimeout(func,timeout);
   }
 }
