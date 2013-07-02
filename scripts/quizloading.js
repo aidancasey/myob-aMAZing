@@ -29,22 +29,29 @@ function loadImage() {
   var img = document.createElement("IMG");
   document.getElementById('qiuz').appendChild(img);
   img.src =randPerson.images[0];
+
   var timeout=0;
   for (var i=0;i<randPerson.images.length;i++)
   { 
     var temp=randPerson.images[i];
     var func=function(){img.src =temp};
-    timeout=timeout+30000;
+    timeout=timeout+3000;
     window.setTimeout(func,timeout);
   }
 }
 
-function Start() {
-
+function StartPictureGame() {
+  var img = document.createElement("IMG");
+  document.getElementById('qiuz').appendChild(img);
+  var randPerson = images[Math.floor(Math.random() * images.length)];
+  img.src =randPerson.images[0];
+  return randPerson.name;
 }
 
 function Increment() {
-
+  var randPerson = images[Math.floor(Math.random() * images.length)];
+  img.src =randPerson.images[0];
+  var timeout=0;
 }
 
 function Reset() {
