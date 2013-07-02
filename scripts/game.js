@@ -8,6 +8,7 @@ var img = new Image();
 var countDownFrom = 100;
 var isPictureGameRunning = false;
 var pictureQuestionAnswer ="";
+var answerCorrect = false;
 
 var command = "";
 
@@ -49,6 +50,7 @@ function drawBlock(x,y,w,h) {
 }
 
 function loadGame() {
+  console.log('loadGame');
   setCanvas();
   setImageSource();
   timer.reset(countDownFrom);
@@ -187,11 +189,17 @@ function gameLoop() {
  console.log('gameloop'); 
   if (isPictureGameRunning)
   {
+
+    if (answerCorrect)
+    {
+      alert('correct answer ');
+    }
    var stillRunning = Increment();
 
     if (!stillRunning)
     {
       isPictureGameRunning = false;
+      command = "";
       startTheClockAgain();
     }
    return;
@@ -281,6 +289,15 @@ else {
     }
     for (var i = event.resultIndex; i < event.results.length; ++i) {
 			getCommand(event.results[i][0].transcript);
+
+      if (isPictureGameRunning)
+      {
+        if (IsRightAnswer(event.results[i][0].transcript))
+        {
+          answerCorrect = true;
+        }
+      }
+
       final_transcript = event.results[i][0].transcript + '\n' + final_transcript;
 
     }
@@ -294,6 +311,19 @@ else {
 function showFriendlyCommandName(cmd)
 {
   $('#userCommand span').text(cmd);
+}
+
+
+function IsRightAnswer(s){
+
+var word = s.toLowerCase().replace(/\s/g, '');
+//console.log('foo :' + pictureGameCorrectAnswer);
+var picName = pictureQuestionAnswer.toLowerCase().replace(/\s/g, '');
+  
+  if (word.indexOf(picName) !=-1){
+  return true;
+  }
+  return false;
 }
 
 function getCommand(s) {
