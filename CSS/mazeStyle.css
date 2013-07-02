@@ -27,7 +27,7 @@
     padding: 0px;
     overflow-y: scroll;
  }
-#qiuz{
+/*#qiuz{
     border: 1px solid #000000;
     border: 1px solid #ABADB3;
     width: 450px;
@@ -35,7 +35,7 @@
     margin: 0px;
     padding: 0px;
     text-align: center;
-}
+}*/
 
 #ScoreCol{
     width: 220px;
