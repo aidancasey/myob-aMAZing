@@ -4,7 +4,7 @@ var dx = 5;
 var dy = 5;
 var x = 240;
 var y = 25;
-var img = new Image();
+var mazeImg = new Image();
 var countDownFrom = 100;
 var isPictureGameRunning = false;
 var pictureQuestionAnswer ="";
@@ -29,7 +29,7 @@ function setCanvas(){
 }
 
 function setImageSource(){
-  img.src = "images/maze.gif";
+  mazeImg.src = "images/maze.gif";
 }
 
 function startGameLoop(){
@@ -38,7 +38,7 @@ function startGameLoop(){
 
 function clearBlock() {
   ctx.clearRect(0, 0, maze.width, maze.height);
-  ctx.drawImage(img, 0, 0);
+  ctx.drawImage(mazeImg, 0, 0);
 }
 
 function drawBlock(x,y,w,h) {
@@ -55,7 +55,6 @@ function loadGame() {
   setImageSource();
   timer.reset(countDownFrom);
 startGameLoop();
-
 
 }
 
@@ -168,12 +167,12 @@ timer.stop();
 
 }
 
-function addTimeToClock( bonusTime){
+function addTimeToClock(bonusTime){
   var currentTime = timer.getTime();
   newTime = currentTime+bonusTime;
   timer.reset(newTime);
+}
 
-//}
 function startTheClock(){
 timer.start(1000);
 }
@@ -191,14 +190,19 @@ function gameLoop() {
  console.log('gameloop'); 
   if (isPictureGameRunning)
   {
-
     if (answerCorrect)
     {
-    isPictureGameRunning = false;
-    //start clock again
-    int bonusTime = CorrectAnswer();
-    addTimeToClock(bonusTime);
-    
+
+      console.log('resetting adter correct ans');
+      isPictureGameRunning = false;
+      //start clock again
+      var bonusTime = CoorectAnswer();
+      Reset(); 
+      addTimeToClock(bonusTime);
+      answerCorrect= false;
+      startTheClock();
+
+      return;
     }
 
    var stillRunning = Increment();
@@ -207,7 +211,7 @@ function gameLoop() {
     {
       isPictureGameRunning = false;
       command = "";
-      startTheClockAgain();
+      startTheClock();
     }
    return;
   }
