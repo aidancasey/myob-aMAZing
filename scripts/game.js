@@ -63,7 +63,14 @@ function startGame() {
 
 function startPictureGame()
 {
+  if (isPictureGameRunning)
+  {
+    return;
+  }
+
+    isPictureGameRunning =true;
     pictureQuestionAnswer = StartPictureGame();
+    console.log('the answer should be ' + pictureQuestionAnswer);
 }
 
 function pictureGameCorrectAnswer()
@@ -81,10 +88,12 @@ case 'help':
 if (!isPictureGameRunning)
 {
   console.log('help');
-     isPictureGameRunning = true;
+     if (!isPictureGameRunning)
+     {
      //stop timer
     stopTheClock();
     startPictureGame();
+   }
 }
 break;
     case 'up':
@@ -178,8 +187,6 @@ function gameLoop() {
  console.log('gameloop'); 
   if (isPictureGameRunning)
   {
-
-
    var stillRunning = Increment();
 
     if (!stillRunning)

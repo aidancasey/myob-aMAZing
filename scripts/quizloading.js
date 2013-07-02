@@ -21,6 +21,7 @@ var images = [{"name":"Jennifer Lopez", "images":jenniferImg},{"name":"Julia Rob
 var incrementor=0;
 var randPerson="";
 var num=0;
+var img ="";
 
 function loadImage() {
 
@@ -40,7 +41,7 @@ function loadImage() {
 }
 
 function StartPictureGame() {
-  var img = document.createElement("IMG");
+  img = document.createElement("IMG");
   document.getElementById('qiuz').appendChild(img);
   randPerson = images[Math.floor(Math.random() * images.length)];
   img.src =randPerson.images[num];
@@ -48,8 +49,10 @@ function StartPictureGame() {
 }
 
 function Increment() {
+ console.log('increment');
   incrementor =incrementor +1;
   if (incrementor % 50 ==0) {
+    console.log('changing picture');
     num=num+1;
     img.src =randPerson.images[num];
   };
