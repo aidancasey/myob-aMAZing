@@ -1,21 +1,38 @@
-#score{
+.score{
     border: 1px solid #000000;
-    height:150;
-  }
+    height:100px;
+    width: 280px;
+    margin: 0px;
+    padding: 0px;
+ }
 
 #command{
     border: 1px solid #000000;
-    
+    height:415px;
+    width: 275px;
+    word-wrap: break-word;
+    margin: 0px;
+    padding: 0px;
+    overflow-y: scroll;
  }
 #qiuz{
     border: 1px solid #000000;
+    width: 450px;
+    height:515px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
 }
+
 #ScoreCol{
-    width: 20%;
+    width: 220px;
+     height:515px;
 }
 #MazeCol{
-width:60%;
+    width:485px;
+    height:515px;
 }
 #Quizcol{
-    width: 20%;
+    width: 450px;
+    height:515px;
 }
